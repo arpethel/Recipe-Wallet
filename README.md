@@ -24,7 +24,7 @@ If you have found a bug or if you have a feature request, please report them at 
 
 ## Author
 
-[Ryan Pethel](arpethel.com)
+[Ryan Pethel](http://www.arpethel.com)
 
 ## License
 
