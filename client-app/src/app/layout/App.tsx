@@ -4,14 +4,14 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    values: []
+    recipes: []
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/values')
+    axios.get('http://localhost:5000/api/recipes')
       .then((response) => {
         this.setState({
-          values: response.data
+          recipes: response.data
         })
       })
   }
@@ -24,8 +24,8 @@ class App extends Component {
           <Header.Content>Recipe Wallet</Header.Content>
         </Header>
         <List>
-          {this.state.values.map((value: any) => (
-            <List.Item key={value.id}>{value.name}</List.Item>
+          {this.state.recipes.map((recipe: any) => (
+            <List.Item key={recipe.id}>{recipe.title}</List.Item>
           ))}
         </List>
       </div>
