@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9570b92c42.js" crossorigin="anonymous"></script>
+      
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9570b92c42.js" crossorigin="anonymous"></script>
+      
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+      
+    <title>Recipe Wallet</title>
+  </head>
+    
+    <nav class="sticky-top p-2 shadow-sm" style="background-color: #FCF8E9">
+<!--        <div class="row">-->
+            <div class="d-flex bd-highlight text-center">
+                <div class="p-2 flex-fill bd-highlight">
+                    <a class="navbar-brand" href="index.html"><img src="signin_logo.png" style="width: 200px; height: 40px"></a>
+                </div>
+                <div class="p-2 flex-fill bd-highlight mt-2">
+                    <form style="height: 30px; width: 300px">
+                        <input class="form-control text-center" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                <div class="p-2 flex-fill bd-highlight mt-2"><i class="far fa-chevron-square-down fa-2x"></i></div>
+            </div>
+<!--        </div>-->
+    </nav>
+    
+  <nav id="navbar">
+      <div class="card shadow-sm" style="border: none; background-color: #FDFBF3">
+          <!-- User -->
+          <div class="p-3">
+              <div class="row">
+                  <div class="col-2">
+                      <p><i class="fas fa-user-circle fa-2x"></i></p>
+                  </div>
+                  <div class="col">
+                      <p>username1123</p>
+                      <p class="text-muted" style="margin-top: -20px"><small>First Last</small></p>
+                  </div>
+              </div>
+              <div class="dropdown-divider"></div>
+          </div>
+          <ul>
+              <a href="#" data-toggle="modal" data-target="#CreateRecipeModal"><li style="color: cadetblue"><i class="fas fa-plus fa-lg pr-2"></i><strong>Create New Recipe</strong></li></a>
+            <a href="#"><li><i class="fas fa-heart fa-lg pr-2" style="color: crimson"></i>Favorites</li></a>
+            <a href="#"><li>Popular</li></a>
+          </ul>
+      </div>
+  </nav>
+    
+    
+  <body class="" style="background-color: #FDFBF3">
+    <main class="" id="main-doc">
+        
+        <!-- Create Recipe Modal -->
+        <div class="modal fade" id="CreateRecipeModal" tabindex="-1" role="dialog" aria-labelledby="CreateRecipeModalCenter" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="border-radius: 15px; background-color: #FDFBF3">
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group text-center p-5 border shadow-sm" style="border-top-left-radius: 15px; border-top-right-radius: 15px; background-color: #FCF8E9">
+                        <i class="fas fa-camera-retro fa-7x"></i>
+                        <h3>Upload a photo here</h3>
+                      </div>
+                      <div class="form-group">
+                        <label for="recipe-name" class="col-form-label"><strong>Name of your recipe:</strong></label>
+                        <input type="text" class="form-control" id="recipe-name">
+                      </div>
+                        
+                      <div class="row">
+                          <div class="col-2 mt-4"><strong>Cook Time:</strong></div>
+                          <div class="col-2">
+                              <div class="form-group">
+                                <label for="HourSelect">Hours</label>
+                                <select class="form-control" id="HourSelect">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                                  <option>11</option>
+                                  <option>12</option>
+                                  <option>13</option>
+                                  <option>14</option>
+                                  <option>15</option>
+                                  <option>16</option>
+                                  <option>17</option>
+                                  <option>18</option>
+                                  <option>19</option>
+                                  <option>20</option>
+                                  <option>21</option>
+                                  <option>22</option>
+                                  <option>23</option>
+                                  <option>24</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col-2">
+                              <div class="form-group">
+                                <label for="MinuteSelect">Minutes</label>
+                                <select class="form-control" id="MinuteSelect">
+                                  <option>0</option>
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>15</option>
+                                  <option>20</option>
+                                  <option>30</option>
+                                  <option>45</option>
+                                </select>
+                              </div>
+                          </div>
+                      </div>
+                        
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-2 mt-4"><strong>Qty:</strong></div>
+                          <div class="col-2">
+                              <div class="form-group">
+                                <label for="PoundSelect">Pounds</label>
+                                <select class="form-control" id="PoundSelect">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col-2">
+                              <div class="form-group">
+                                <label for="OunceSelect">Ounces</label>
+                                <select class="form-control" id="OunceSelect">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col">
+                              <div class="form-group">
+                                <label for="Item">Item</label>
+                                <textarea class="form-control" id="Item" rows="1"></textarea>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="form-group"><i class="fas fa-plus fa-2x pr-3"></i><strong>Add item</strong></div>
+                      <div class="form-group">
+                        <label for="Description"><strong>Description:</strong></label>
+                        <textarea class="form-control" id="Description" rows="4"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="Instructions"><strong>Instructions:</strong></label>
+                        <textarea class="form-control" id="Instructions" rows="4"></textarea>
+                      </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-info">Create recipe</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- End Create Recipe Modal -->
+        
+        <!-- Post Modal -->
+        <div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-labelledby="PostModalCenter" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center" style="width: 400px; border-radius: 15px">
+                <p class="mt-3"><strong style="color: red">Report inappropriate</strong></p>
+                <div class="dropdown-divider" style="margin: 0"></div>
+                <p class="mt-3"><strong style="color: red">Unfollow</strong></p>
+                <div class="dropdown-divider" style="margin: 0"></div>
+                <p class="mt-3">Go to recipe</p>
+                <div class="dropdown-divider" style="margin: 0"></div>
+                <p class="mt-3" data-dismiss="modal" aria-label="Close">Cancel</p>
+            </div>
+          </div>
+        </div>
+        <!-- End Post Modal -->
+        
+        <!-- Post -->
+        <div class="card rounded-sm mb-4 shadow pt-3 pb-3" style="max-height: 50%; max-width: 50%; border: none; background-color: #FDFBF3;">
+            
+            <!-- Post Header -->
+            <div class="d-flex justify-content-between" style="margin-bottom: -15px;">
+                <div class="col-4">
+                    <h5><i class="fas fa-user-circle fa-lg"></i> username</h5>
+                </div>
+                <div class="col-1 pr-5">
+                    <!-- Ellipsis trigger modal -->
+                    <p data-toggle="modal" data-target="#PostModal"><i class="far fa-ellipsis-h fa-2x"></i></p>
+                </div>
+            </div>
+            <!-- End Post Header -->
+            
+            <!-- Post Content -->
+            <a href="Show.html"><img src="https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg" class="card-img rounded-0" alt="Famous Pizza"></a>
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <h2 class="card-title">Famous Pizza</h2>
+                </div>
+                
+                <!-- Post Icons -->
+                <div class="col-4 mt-2">
+                    <i class="fal fa-comment fa-2x pr-4"></i><i class="fal fa-share fa-2x pr-4"></i><i class="fal fa-heart fa-2x"></i>
+                </div>
+            </div>
+            
+            <!-- Rating Stars and Cook Time -->
+            <p class="card-text pl-3" style="margin-top: -10px"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fal fa-star pr-3 fa-lg"></i>Ready in: 1 hr, 30 min</p>
+            
+            <!-- User username with comment -->
+            <div class="pl-3">
+                <p class="card-text" style="margin-top: -5px"><small><strong>username1123</strong> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit lo...<a href="#" class="text-muted">more</a></small></p>
+            </div>
+            <!-- End Post Content -->
+        </div>
+        
+        <!-- Post -->
+        <div class="card rounded-sm mb-4 shadow pt-3 pb-3" style="max-height: 50%; max-width: 50%; border: none; background-color: #FDFBF3;">
+            
+            <!-- Post Header -->
+            <div class="d-flex justify-content-between" style="margin-bottom: -15px;">
+                <div class="col-4">
+                    <h5><i class="fas fa-user-circle fa-lg"></i> username</h5>
+                </div>
+                <div class="col-1 pr-5">
+                    <p><i class="far fa-ellipsis-h fa-2x"></i></p>
+                </div>
+            </div>
+            <!-- End Post Header -->
+            
+            <!-- Post Content -->
+            <img src="https://bluewater.co.uk/sites/bluewater/files/styles/whats_on_gallery_large/public/images/shops/gallery/cheese-burger-1600x1600.jpg?itok=bBBJwRCL" class="card-img rounded-0" alt="...">
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <h2 class="card-title">Title of Recipe</h2>
+                </div>
+                
+                <!-- Post Icons -->
+                <div class="col-4 mt-2">
+                    <i class="fal fa-comment fa-2x pr-4"></i><i class="fal fa-share fa-2x pr-4"></i><i class="fal fa-heart fa-2x"></i>
+                </div>
+            </div>
+            
+            <!-- Rating Stars and Cook Time -->
+            <p class="card-text pl-3" style="margin-top: -10px"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fal fa-star pr-3 fa-lg"></i>Ready in: 30 min</p>
+            
+            <!-- User username with comment -->
+            <div class="pl-3">
+                <p class="card-text" style="margin-top: -5px"><small><strong>username1123</strong> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit lo...<a href="#" class="text-muted">more</a></small></p>
+            </div>
+            <!-- End Post Content -->
+        </div>
+        
+        <!-- Post -->
+        <div class="card rounded-sm mb-4 shadow pt-3 pb-3" style="max-height: 50%; max-width: 50%; border: none; background-color: #FDFBF3;">
+            
+            <!-- Post Header -->
+            <div class="d-flex justify-content-between" style="margin-bottom: -15px;">
+                <div class="col-4">
+                    <h5><i class="fas fa-user-circle fa-lg"></i> username</h5>
+                </div>
+                <div class="col-1 pr-5">
+                    <p><i class="far fa-ellipsis-h fa-2x"></i></p>
+                </div>
+            </div>
+            <!-- End Post Header -->
+            
+            <!-- Post Content -->
+            <img src="https://bluewater.co.uk/sites/bluewater/files/styles/whats_on_gallery_large/public/images/shops/gallery/askitalian_4_1600x1600.jpg?itok=nnBpiSQB" class="card-img rounded-0" alt="...">
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <h2 class="card-title">Title of Recipe</h2>
+                </div>
+                
+                <!-- Post Icons -->
+                <div class="col-4 mt-2">
+                    <i class="fal fa-comment fa-2x pr-4"></i><i class="fal fa-share fa-2x pr-4"></i><i class="fal fa-heart fa-2x"></i>
+                </div>
+            </div>
+            
+            <!-- Rating Stars and Cook Time -->
+            <p class="card-text pl-3" style="margin-top: -10px"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fal fa-star pr-3 fa-lg"></i>Ready in: 30 min</p>
+            
+            <!-- User username with comment -->
+            <div class="pl-3">
+                <p class="card-text" style="margin-top: -5px"><small><strong>username1123</strong> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit lo...<a href="#" class="text-muted">more</a></small></p>
+            </div>
+            <!-- End Post Content -->
+        </div>
+        
+        <!-- Post -->
+        <div class="card rounded-sm mb-4 shadow pt-3 pb-3" style="max-height: 50%; max-width: 50%; border: none; background-color: #FDFBF3;">
+            
+            <!-- Post Header -->
+            <div class="d-flex justify-content-between" style="margin-bottom: -15px;">
+                <div class="col-4">
+                    <h5><i class="fas fa-user-circle fa-lg"></i> username</h5>
+                </div>
+                <div class="col-1 pr-5">
+                    <p><i class="far fa-ellipsis-h fa-2x"></i></p>
+                </div>
+            </div>
+            <!-- End Post Header -->
+            
+            <!-- Post Content -->
+            <img src="https://spanishsabores.com/wp-content/uploads/2019/01/DSC07449.jpg" class="card-img rounded-0" alt="...">
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <h2 class="card-title">Title of Recipe</h2>
+                </div>
+                
+                <!-- Post Icons -->
+                <div class="col-4 mt-2">
+                    <i class="fal fa-comment fa-2x pr-4"></i><i class="fal fa-share fa-2x pr-4"></i><i class="fal fa-heart fa-2x"></i>
+                </div>
+            </div>
+            
+            <!-- Rating Stars and Cook Time -->
+            <p class="card-text pl-3" style="margin-top: -10px"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fal fa-star pr-3 fa-lg"></i>Ready in: 30 min</p>
+            
+            <!-- User username with comment -->
+            <div class="pl-3">
+                <p class="card-text" style="margin-top: -5px"><small><strong>username1123</strong> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit lo...<a href="#" class="text-muted">more</a></small></p>
+            </div>
+            <!-- End Post Content -->
+        </div>
+        
+        
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
