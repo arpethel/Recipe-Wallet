@@ -10,17 +10,18 @@ const RecentActivity = () => {
         <Card.Content>
           <Feed>
             <Feed.Event>
-              <Feed.Label image="/images/avatar/small/jenny.jpg" />
+              <Feed.Label image="/assets/user.png" />
               <Feed.Content>
                 <Feed.Date content="1 day ago" />
                 <Feed.Summary>
-                  You added <a>Jenny Hess's</a> recipe <a>New York Lasagna</a> to your <a>favorites</a>.
+                  You added <a>Jenny Hess's</a> recipe <a>New York Lasagna</a>{" "}
+                  to your <a>favorites</a>.
                 </Feed.Summary>
               </Feed.Content>
             </Feed.Event>
 
             <Feed.Event>
-              <Feed.Label image="/images/avatar/small/molly.png" />
+              <Feed.Label image="/assets/user.png" />
               <Feed.Content>
                 <Feed.Date content="3 days ago" />
                 <Feed.Summary>
@@ -30,11 +31,12 @@ const RecentActivity = () => {
             </Feed.Event>
 
             <Feed.Event>
-              <Feed.Label image="/images/avatar/small/elliot.jpg" />
+              <Feed.Label image="/assets/user.png" />
               <Feed.Content>
                 <Feed.Date content="4 days ago" />
                 <Feed.Summary>
-                  You Commented on <a>Elliot Baker's</a> <a>Hamburger Delight</a>.
+                  You Commented on <a>Elliot Baker's</a>{" "}
+                  <a>Hamburger Delight</a>.
                 </Feed.Summary>
               </Feed.Content>
             </Feed.Event>
