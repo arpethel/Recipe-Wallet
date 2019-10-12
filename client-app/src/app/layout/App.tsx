@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import { Header, Icon, List } from 'semantic-ui-react'
+import React, {useState, useEffect, Fragment} from 'react';
+import { Header, Icon, List, Container } from 'semantic-ui-react'
 import axios from 'axios';
 import { IRecipe } from '../models/recipe';
 import NavBar from '../../features/nav/NavBar';
+import ShowRecipes from '../../features/recipes/show/ShowRecipes';
 
 const App = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([])
@@ -15,14 +16,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       <NavBar />
-      <List>
-        {recipes.map((recipe) => (
-          <List.Item key={recipe.id}>{recipe.title}</List.Item>
-        ))}
-      </List>
-    </div>
+      <Container style={{marginTop: '7em'}}>
+        <ShowRecipes recipes={recipes}/>
+      </Container>
+    </Fragment>
   );
   
   
