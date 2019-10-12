@@ -7,7 +7,7 @@ const NavBar = () => {
       <Container>
         <Menu.Menu position="left">
             <Menu.Item>
-                <img src='/assets/signin_logo.png' className="ui medium image"/>
+                <img src='/assets/signin_logo.png' className="ui small image"/>
             </Menu.Item>
         </Menu.Menu>
 

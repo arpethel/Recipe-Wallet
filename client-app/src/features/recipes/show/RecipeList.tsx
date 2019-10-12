@@ -10,7 +10,7 @@ const RecipeList: React.FC<IProps> = ({recipes}) => {
     return (
       <Fragment>
         {recipes.map(recipe => (
-          <Card key={recipe.id} centered style={{ minWidth: "300px", width: "500px" }}>
+          <Card key={recipe.id} fluid centered style={{ minWidth: "300px"}}>
             <Card.Header style={{ padding: "5px" }}>
               Username1123
               <Grid.Column floated="right">
@@ -18,7 +18,7 @@ const RecipeList: React.FC<IProps> = ({recipes}) => {
               </Grid.Column>
             </Card.Header>
 
-            <Image src="/images/avatar/large/daniel.jpg" wrapped ui={false} />
+            <Image src="/assets/placeholder.png" wrapped ui={false} />
             <Card.Content>
               <Card.Header>
                 {recipe.title}

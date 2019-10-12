@@ -21,6 +21,7 @@ const App = () => {
       <Container style={{marginTop: '7em'}}>
         <ShowRecipes recipes={recipes}/>
       </Container>
+      
     </Fragment>
   );
   
