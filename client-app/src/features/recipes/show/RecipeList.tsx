@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Image, Icon, Segment, Button } from 'semantic-ui-react';
+import React, { Fragment } from 'react';
+import { Card, Image, Icon, Segment, Button, Grid } from 'semantic-ui-react';
 import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
@@ -8,16 +8,25 @@ interface IProps {
 
 const RecipeList: React.FC<IProps> = ({recipes}) => {
     return (
-      <Segment clearing>
+      <Fragment>
         {recipes.map(recipe => (
-          <Card vertical key={recipe.id}>
+          <Card key={recipe.id} centered style={{ minWidth: "300px", width: "500px" }}>
+            <Card.Header style={{ padding: "5px" }}>
+              Username1123
+              <Grid.Column floated="right">
+                <Card.Meta>{recipe.cuisine}</Card.Meta>
+              </Grid.Column>
+            </Card.Header>
+
             <Image src="/images/avatar/large/daniel.jpg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>
                 {recipe.title}
-                <Icon name="comment" floated="right"></Icon>
-                <Icon name="share" floated="right"></Icon>
-                <Icon name="heart" floated="right" color="red"></Icon>
+                <Grid.Column floated="right">
+                  <Icon name="comment" style={{ paddingRight: "30px" }}></Icon>
+                  <Icon name="share" style={{ paddingRight: "25px" }}></Icon>
+                  <Icon name="heart" color="red"></Icon>
+                </Grid.Column>
               </Card.Header>
               <Card.Meta>{recipe.cuisine}</Card.Meta>
               <Card.Meta>
@@ -26,7 +35,9 @@ const RecipeList: React.FC<IProps> = ({recipes}) => {
                 <Icon name="star" />
                 <Icon name="star" />
                 <Icon name="star" />
-                Ready in: {recipe.cooktime}
+                <Grid.Column floated="right">
+                  Ready in: 1 hr, 15 min{recipe.cooktime}
+                </Grid.Column>
               </Card.Meta>
               <Card.Description>{recipe.description}</Card.Description>
             </Card.Content>
@@ -35,7 +46,7 @@ const RecipeList: React.FC<IProps> = ({recipes}) => {
             </Card.Content>
           </Card>
         ))}
-      </Segment>
+      </Fragment>
     );
 }
 
