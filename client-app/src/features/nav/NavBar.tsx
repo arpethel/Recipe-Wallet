@@ -12,13 +12,13 @@ const NavBar = () => {
         </Menu.Menu>
 
         <Menu.Menu position="right">
-          <Menu.Item>
+          {/* <Menu.Item>
             <Button primary>Sign up</Button>
           </Menu.Item>
 
           <Menu.Item>
             <Button>Log-in</Button>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu.Menu>
       </Container>
     </Menu>

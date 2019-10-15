@@ -1,36 +1,46 @@
 import React from 'react'
-import { Segment, Form, Dropdown, Header, Grid } from 'semantic-ui-react'
+import { Segment, Form, Header } from 'semantic-ui-react'
 
 const friendOptions = [
   {
     key: "Indian",
     text: "Indian",
-    value: "Indian",
+    value: "Indian"
   },
   {
     key: "North American",
     text: "North American",
-    value: "North American",
+    value: "North American"
   },
   {
-    key: "Asian",
-    text: "Asian",
-    value: "Asian",
+    key: "Chinese",
+    text: "Chinese",
+    value: "Chinese"
+  },
+  {
+    key: "Japanese",
+    text: "Japanese",
+    value: "Japanese"
+  },
+  {
+    key: "Thai",
+    text: "Thai",
+    value: "Thai"
   },
   {
     key: "African",
     text: "African",
-    value: "African",
+    value: "African"
   },
   {
     key: "South American",
     text: "South American",
-    value: "South American",
+    value: "South American"
   },
   {
     key: "European",
     text: "European",
-    value: "European",
+    value: "European"
   }
 ];
 

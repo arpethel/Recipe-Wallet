@@ -1,7 +1,11 @@
 import React from 'react'
 import { Menu, Input, Icon, Dropdown } from 'semantic-ui-react';
 
-const SideBar = () => {
+interface IProps {
+    setEditMode: (editMode: boolean) => void;
+}
+
+const SideBar: React.FC<IProps> = ({setEditMode}) => {
     return (
       <Menu vertical fluid>
         <Menu.Item>
@@ -11,27 +15,15 @@ const SideBar = () => {
         <Menu.Item>
           Home
           <Menu.Menu>
-            <Menu.Item
-              name="search"
-            >
-              Your Recipes
-            </Menu.Item>
-            <Menu.Item
-              name="add"
-            >
-              Favorites
-            </Menu.Item>
-            <Menu.Item
-              name="about"
-            >
+            <Menu.Item name="search">Your Recipes</Menu.Item>
+            <Menu.Item name="add">Favorites</Menu.Item>
+            <Menu.Item name="new" onClick={() => setEditMode(true)}>
               Create New Recipe
             </Menu.Item>
           </Menu.Menu>
         </Menu.Item>
 
-        <Menu.Item
-          name="browse"
-        >
+        <Menu.Item name="browse">
           <Icon name="grid layout" />
           Browse Cuisines
         </Menu.Item>
@@ -44,8 +36,6 @@ const SideBar = () => {
           </Dropdown.Menu>
         </Dropdown>
       </Menu>
-
-      
     );
 }
 
