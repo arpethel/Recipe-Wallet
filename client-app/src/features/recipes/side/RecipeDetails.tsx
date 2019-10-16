@@ -19,12 +19,6 @@ const RecipeDetails: React.FC<IProps> = ({recipe}) => {
           </Card.Meta>
           <Card.Description>Cuisine Description</Card.Description>
         </Card.Content>
-        {/* <Card.Content extra>
-          <Button.Group widths={2}>
-            <Button basic color="blue" content="Edit" />
-            <Button basic color="grey" content="Cancel" />
-          </Button.Group>
-        </Card.Content> */}
       </Card>
     );
 }

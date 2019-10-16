@@ -1,5 +1,5 @@
-import React, { Fragment, Component } from 'react';
-import { Card, Image, Icon, Grid, Accordion, Button } from 'semantic-ui-react';
+import React, { Fragment } from 'react';
+import { Card, Image, Icon, Grid, Accordion, Button, Segment, Form } from 'semantic-ui-react';
 import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
@@ -9,19 +9,7 @@ interface IProps {
     selectedRecipe: IRecipe | null;
 }
 
-// const panels = [
-//   {
-//     key: "Show More",
-//     title: "Show More",
-//     content: [
-//       "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome",
-//       "guest in many households across the world."
-//     ].join(" ")
-//   }
-// ];
-
-
-const panels = (r : IRecipe) => {
+const recipeDetails = (r : IRecipe) => {
   return [
     {
       title: "Details",
@@ -49,6 +37,18 @@ const panels = (r : IRecipe) => {
     }
   ];
 }
+
+const editRecipe = [
+  {
+    key: "details",
+    title: "Optional Details",
+    content: {
+      as: Form.Input,
+      label: "Maiden Name",
+      placeholder: "Maiden Name"
+    }
+  }
+];
 
 
 
@@ -100,7 +100,10 @@ const RecipeList: React.FC<IProps> = ({recipes, selectRecipe}) => {
               </Card.Meta>
             </Card.Content>
             <Card.Content>
-              <Accordion defaultActiveIndex={-1} panels={panels(recipe)} />
+              <Accordion
+                defaultActiveIndex={-1}
+                panels={recipeDetails(recipe)}
+              />
             </Card.Content>
           </Card>
         ))}

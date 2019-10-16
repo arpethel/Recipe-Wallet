@@ -3,7 +3,7 @@ import { Card, Feed} from "semantic-ui-react";
 
 const RecentActivity = () => {
     return (
-      <Card>
+      <Card style={{ position: "fixed", maxWidth: "275px" }}>
         <Card.Content>
           <Card.Header>Recent Activity</Card.Header>
         </Card.Content>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, List, Card, Sticky, Rail, Segment, Image } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { IRecipe } from '../../../app/models/recipe';
 import RecipeList from './RecipeList';
 import SideBar from '../side/SideBar';
@@ -13,8 +13,6 @@ interface IProps {
     selectedRecipe: IRecipe | null;
     editMode: boolean;
     setEditMode: (editMode: boolean) => void;
-    // detailsMode: boolean;
-    // showDetailsMode: (detailsMode: boolean) => void;
 }
 
 const Home: React.FC<IProps> = ({ 
@@ -26,15 +24,14 @@ const Home: React.FC<IProps> = ({
  }) => {
   return (
     <Grid centered columns={3}>
-      <Grid.Column width={4}>
+      <Grid.Column width={3}>
         <SideBar setEditMode={setEditMode} />
-        {editMode && <RecipeForm />}
+        {/* {editMode && <RecipeForm />} */}
       </Grid.Column>
       <Grid.Column width={8}>
         <RecipeList recipes={recipes} selectRecipe={selectRecipe} selectedRecipe={selectedRecipe} />
       </Grid.Column>
       <Grid.Column width={4}>
-        {selectedRecipe && (<RecipeDetails recipe={selectedRecipe} />)}
         <RecentActivity />
       </Grid.Column>
     </Grid>

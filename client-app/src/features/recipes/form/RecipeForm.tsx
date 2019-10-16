@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Form, Header } from 'semantic-ui-react'
+import { Segment, Form, Header, Button } from 'semantic-ui-react'
 
 const friendOptions = [
   {
@@ -46,7 +46,7 @@ const friendOptions = [
 
 const RecipeForm = () => {
     return (
-      <Segment>
+      <Segment clearing>
         <Form>
           <Header>Create New Recipe</Header>
 
@@ -64,16 +64,69 @@ const RecipeForm = () => {
           <Form.TextArea placeholder="Tell us about your recipe" />
 
           <Header>List of Ingredients</Header>
-          {/* <Form.Input type="number" name="quantity" min="0" max="5" /> */}
-          <Form.Input placeholder="e.g. Carrots" />
+          <Form.Group widths={2}>
+            <Form.Input
+              width={7}
+              type="number"
+              name="quantity"
+              min="0"
+              max="5"
+            />
+            <Form.Input
+              style={{ paddingLeft: "5px" }}
+              width={15}
+              placeholder="e.g. Carrots"
+            />
+          </Form.Group>
 
-          <Form.Input placeholder="e.g. Eggs" />
-          <Form.Input placeholder="e.g. Celery" />
-          <Form.Input placeholder="e.g. Beef" />
-          <Form.Input placeholder="e.g. Cabbage" />
+          <Form.Group widths={2}>
+            <Form.Input
+              width={7}
+              type="number"
+              name="quantity"
+              min="0"
+              max="5"
+            />
+            <Form.Input
+              style={{ paddingLeft: "5px" }}
+              width={15}
+              placeholder="e.g. Carrots"
+            />
+          </Form.Group>
+          <Form.Group widths={2}>
+            <Form.Input
+              width={7}
+              type="number"
+              name="quantity"
+              min="0"
+              max="5"
+            />
+            <Form.Input
+              style={{ paddingLeft: "5px" }}
+              width={15}
+              placeholder="e.g. Carrots"
+            />
+          </Form.Group>
+          <Form.Group widths={2}>
+            <Form.Input
+              width={7}
+              type="number"
+              name="quantity"
+              min="0"
+              max="5"
+            />
+            <Form.Input
+              style={{ paddingLeft: "5px" }}
+              width={15}
+              placeholder="e.g. Carrots"
+            />
+          </Form.Group>
 
           <Header>Instructions</Header>
           <Form.TextArea placeholder="e.g. Place two eggs in the pan" />
+
+          <Button floated="right" positive type="submit" content="Create" />
+          <Button floated="right" type="button" content="Cancel" />
         </Form>
       </Segment>
     );
