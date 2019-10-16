@@ -1,5 +1,10 @@
 import React from 'react'
 import { Segment, Form, Header, Button } from 'semantic-ui-react'
+import { IRecipe } from '../../../app/models/recipe';
+
+interface IProps {
+    recipe: IRecipe;
+}
 
 const friendOptions = [
   {
@@ -44,11 +49,11 @@ const friendOptions = [
   }
 ];
 
-const RecipeForm = () => {
+const RecipeForm: React.FC<IProps> = ({recipe}) => {
     return (
-      <Segment clearing>
+      <Segment clearing fluid style={{overflow: 'auto', position: 'fixed',maxHeight: '800px', minWidth: '275px', width: '275px'}}>
         <Form>
-          <Header>Create New Recipe</Header>
+          <Header>{recipe.title}</Header>
 
           <Form.Input placeholder="Title" />
           <Form.Dropdown

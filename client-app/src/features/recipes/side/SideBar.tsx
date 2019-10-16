@@ -1,11 +1,12 @@
 import React from 'react'
 import { Menu, Input, Icon, Dropdown } from 'semantic-ui-react';
+import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
-    setEditMode: (editMode: boolean) => void;
+    // setEditMode: (editMode: boolean) => void;
 }
 
-const SideBar: React.FC<IProps> = ({ setEditMode }) => {
+const SideBar: React.FC<IProps> = ({  }) => {
   return (
     <Menu vertical fluid style={{position: 'fixed', maxWidth:'200px', boxShadow: 'none', border: 'none', backgroundColor: 'transparent'}}>
       {/* <Menu.Item>
@@ -17,7 +18,7 @@ const SideBar: React.FC<IProps> = ({ setEditMode }) => {
         <Menu.Menu>
           <Menu.Item name="search">Your Recipes</Menu.Item>
           <Menu.Item name="add">Favorites</Menu.Item>
-          <Menu.Item name="new" onClick={() => setEditMode(true)}>
+          <Menu.Item name="new" >
             Create New Recipe
           </Menu.Item>
         </Menu.Menu>

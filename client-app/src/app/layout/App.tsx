@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import { Header, Icon, List, Container, Sidebar } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 import axios from 'axios';
 import { IRecipe } from '../models/recipe';
 import NavBar from '../../features/nav/NavBar';
@@ -24,8 +24,7 @@ const App = () => {
   return (
     <Fragment>
       <NavBar />
-      <Container style={{ marginTop: "5em" }}>
-        {/* <Sidebar/> */}
+      <Container style={{ marginTop: "6em" }}>
         <Home
           recipes={recipes}
           selectRecipe={handleSelectRecipe}

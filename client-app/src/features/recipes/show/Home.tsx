@@ -5,10 +5,9 @@ import RecipeList from './RecipeList';
 import SideBar from '../side/SideBar';
 import RecentActivity from '../side/RecentActivity';
 import RecipeForm from '../form/RecipeForm';
-import RecipeDetails from '../side/RecipeDetails';
 
 interface IProps {
-    recipes: IRecipe[]
+    recipes: IRecipe[];
     selectRecipe: (id: string) => void;
     selectedRecipe: IRecipe | null;
     editMode: boolean;
@@ -25,14 +24,19 @@ const Home: React.FC<IProps> = ({
   return (
     <Grid centered columns={3}>
       <Grid.Column width={3}>
-        <SideBar setEditMode={setEditMode} />
-        {/* {editMode && <RecipeForm />} */}
+        <SideBar />
       </Grid.Column>
       <Grid.Column width={8}>
-        <RecipeList recipes={recipes} selectRecipe={selectRecipe} selectedRecipe={selectedRecipe} />
+        <RecipeList
+          setEditMode={setEditMode}
+          recipes={recipes}
+          selectRecipe={selectRecipe}
+          selectedRecipe={selectedRecipe}
+        />
       </Grid.Column>
       <Grid.Column width={4}>
-        <RecentActivity />
+        {editMode && selectedRecipe && <RecipeForm recipe={selectedRecipe}/>}
+        {!editMode && <RecentActivity />}
       </Grid.Column>
     </Grid>
   );

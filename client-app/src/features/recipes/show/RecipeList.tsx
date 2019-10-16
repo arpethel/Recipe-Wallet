@@ -1,21 +1,23 @@
 import React, { Fragment } from 'react';
-import { Card, Image, Icon, Grid, Accordion, Button, Segment, Form } from 'semantic-ui-react';
+import { Card, Image, Icon, Grid, Accordion } from 'semantic-ui-react';
 import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
     recipes: IRecipe[];
-    // recipe: IRecipe;
     selectRecipe: (id: string) => void;
     selectedRecipe: IRecipe | null;
+    setEditMode: (editMode: boolean) => void;
 }
 
-const recipeDetails = (r : IRecipe) => {
+const recipeDetails = (r : IRecipe, setEditMode: ((editMode: boolean) => void)) => {
   return [
     {
       title: "Details",
       content: [
         <div>
-          <p><em>Ready in: {r.cooktime}</em></p>
+          <p>
+            <em>Ready in: {r.cooktime}</em>
+          </p>
         </div>,
         <br />,
         <div style={{ fontSize: "18px" }}>
@@ -29,43 +31,23 @@ const recipeDetails = (r : IRecipe) => {
         <div>
           <p>{r.directions}</p>
         </div>,
-        <br/>,
-        <div>
-          <Button secondary floated="right">Edit</Button>
-        </div>
+        <Grid.Column floated="right">
+          <Card.Meta onClick={() => setEditMode(true)}>
+            <a>Edit</a>
+          </Card.Meta>
+        </Grid.Column>
       ]
     }
   ];
 }
 
-const editRecipe = [
-  {
-    key: "details",
-    title: "Optional Details",
-    content: {
-      as: Form.Input,
-      label: "Maiden Name",
-      placeholder: "Maiden Name"
-    }
-  }
-];
-
-
-
-const RecipeList: React.FC<IProps> = ({recipes, selectRecipe}) => {
+const RecipeList: React.FC<IProps> = ({recipes, selectRecipe, setEditMode, selectedRecipe}) => {
     
     return (
       <Fragment>
         {recipes.map(recipe => (
           <Card key={recipe.id} fluid centered style={{ minWidth: "300px" }}>
-            <Card.Header style={{ padding: "5px" }}>
-              Username1123
-              <Grid.Column floated="right">
-                <Card.Meta onClick={() => selectRecipe(recipe.id)}>
-                  <a>{recipe.cuisine}</a>
-                </Card.Meta>
-              </Grid.Column>
-            </Card.Header>
+            <Card.Header style={{ padding: "5px" }}>Username1123</Card.Header>
 
             <Image
               src={`/assets/cuisineImages/${recipe.title}.jpg`}
@@ -99,10 +81,11 @@ const RecipeList: React.FC<IProps> = ({recipes, selectRecipe}) => {
                 <Icon name="star" size="large" />
               </Card.Meta>
             </Card.Content>
-            <Card.Content>
+            <Card.Content onClick={() => selectRecipe(recipe.id)}>
               <Accordion
                 defaultActiveIndex={-1}
-                panels={recipeDetails(recipe)}
+                panels={recipeDetails(recipe, setEditMode)}
+                style={{transitionProperty: 'height', transitionDuration: '2s', transitionTimingFunction: 'linear', transitionDelay: '1s'}}
               />
             </Card.Content>
           </Card>
