@@ -4,9 +4,10 @@ import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
     recipe: IRecipe;
+    setEditMode: (editMode: boolean) => void;
 }
 
-const friendOptions = [
+const cuisineOptions = [
   {
     key: "Indian",
     text: "Indian",
@@ -49,18 +50,28 @@ const friendOptions = [
   }
 ];
 
-const RecipeForm: React.FC<IProps> = ({recipe}) => {
+const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
     return (
-      <Segment clearing fluid style={{overflow: 'auto', position: 'fixed',maxHeight: '800px', minWidth: '275px', width: '275px'}}>
+      <Segment
+        clearing
+        fluid
+        style={{
+          overflow: "auto",
+          position: "fixed",
+          maxHeight: "800px",
+          minWidth: "275px",
+          width: "275px"
+        }}
+      >
         <Form>
-          <Header>{recipe.title}</Header>
+          <Header>Edit {recipe.title}</Header>
 
           <Form.Input placeholder="Title" />
           <Form.Dropdown
             placeholder="Select Cuisine"
             fluid
             selection
-            options={friendOptions}
+            options={cuisineOptions}
           />
           <Header>Cook Time</Header>
           <Form.Input type="time" />
@@ -131,7 +142,7 @@ const RecipeForm: React.FC<IProps> = ({recipe}) => {
           <Form.TextArea placeholder="e.g. Place two eggs in the pan" />
 
           <Button floated="right" positive type="submit" content="Create" />
-          <Button floated="right" type="button" content="Cancel" />
+          <Button onClick={() => setEditMode(false)} floated="right" type="button" content="Cancel" />
         </Form>
       </Segment>
     );

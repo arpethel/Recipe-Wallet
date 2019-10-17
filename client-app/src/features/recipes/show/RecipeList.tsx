@@ -41,7 +41,7 @@ const recipeDetails = (r : IRecipe, setEditMode: ((editMode: boolean) => void)) 
   ];
 }
 
-const RecipeList: React.FC<IProps> = ({recipes, selectRecipe, setEditMode, selectedRecipe}) => {
+const RecipeList: React.FC<IProps> = ({recipes, selectRecipe, setEditMode}) => {
     
     return (
       <Fragment>

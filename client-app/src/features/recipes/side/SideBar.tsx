@@ -1,24 +1,31 @@
 import React from 'react'
 import { Menu, Input, Icon, Dropdown } from 'semantic-ui-react';
-import { IRecipe } from '../../../app/models/recipe';
 
 interface IProps {
-    // setEditMode: (editMode: boolean) => void;
+    openCreateForm: () => void;
+    setCreateMode: (createMode: boolean) => void;
 }
 
-const SideBar: React.FC<IProps> = ({  }) => {
+const SideBar: React.FC<IProps> = ({openCreateForm, setCreateMode}) => {
   return (
-    <Menu vertical fluid style={{position: 'fixed', maxWidth:'200px', boxShadow: 'none', border: 'none', backgroundColor: 'transparent'}}>
-      {/* <Menu.Item>
-        <Input placeholder="Search..." />
-      </Menu.Item> */}
+    <Menu
+      vertical
+      fluid
+      style={{
+        position: "fixed",
+        maxWidth: "200px",
+        boxShadow: "none",
+        border: "none",
+        backgroundColor: "transparent"
+      }}
+    >
 
       <Menu.Item>
         Home
         <Menu.Menu>
           <Menu.Item name="search">Your Recipes</Menu.Item>
           <Menu.Item name="add">Favorites</Menu.Item>
-          <Menu.Item name="new" >
+          <Menu.Item name="new" onClick={() => setCreateMode(true)}>
             Create New Recipe
           </Menu.Item>
         </Menu.Menu>
@@ -29,7 +36,7 @@ const SideBar: React.FC<IProps> = ({  }) => {
         Browse Cuisines
       </Menu.Item>
 
-      <Dropdown text="More" style={{marginLeft: '15px'}}>
+      <Dropdown text="More" style={{ marginLeft: "15px" }}>
         <Dropdown.Menu>
           <Dropdown.Item icon="edit" text="Edit Profile" />
           <Dropdown.Item icon="globe" text="Choose Language" />

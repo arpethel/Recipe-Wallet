@@ -8,10 +8,16 @@ import Home from '../../features/recipes/show/Home';
 const App = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([])
   const [selectedRecipe, setSelectedRecipe] = useState<IRecipe | null>(null);
-  const [editMode, setEditMode] = useState(false);  
+  const [editMode, setEditMode] = useState(false);
+  const [createMode, setCreateMode] = useState(false);
 
   const handleSelectRecipe = (id: string) => {
     setSelectedRecipe(recipes.filter(r => r.id === id)[0])
+  }
+
+  const handleOpenCreateForm = () => {
+    setSelectedRecipe(null);
+    setCreateMode(true);
   }
 
   useEffect(() => {
@@ -23,7 +29,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <NavBar />
+      <NavBar  />
       <Container style={{ marginTop: "6em" }}>
         <Home
           recipes={recipes}
@@ -31,6 +37,9 @@ const App = () => {
           selectedRecipe={selectedRecipe}
           editMode={editMode}
           setEditMode={setEditMode}
+          createMode={createMode}
+          setCreateMode={setCreateMode}
+          openCreateForm={handleOpenCreateForm}
         />
       </Container>
     </Fragment>
