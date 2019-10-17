@@ -7,5 +7,5 @@ export interface IRecipe {
     cooktime: string;
     directions: string;
     rating: number;
-    date: Date;
+    date: string;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Segment, Form, Header, Button } from 'semantic-ui-react'
 import { IRecipe } from '../../../app/models/recipe';
 
@@ -50,7 +50,28 @@ const cuisineOptions = [
   }
 ];
 
-const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
+const RecipeForm: React.FC<IProps> = ({recipe: initialFormState, setEditMode}) => {
+
+    const initializeForm = () => {
+      if (initialFormState) {
+        return initialFormState;
+      } else {
+        return {
+          id: "",
+          title: "",
+          cuisine: "",
+          ingredients: "",
+          directions: "",
+          description: "",
+          cooktime: "",
+          rating: 0,
+          date: ""
+        };
+      }
+    };
+
+    const [recipe, setRecipe] = useState<IRecipe>(initializeForm)
+
     return (
       <Segment
         clearing
@@ -66,18 +87,22 @@ const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
         <Form>
           <Header>Edit {recipe.title}</Header>
 
-          <Form.Input placeholder="Title" />
+          <Form.Input placeholder="Title" value={recipe.title} />
           <Form.Dropdown
             placeholder="Select Cuisine"
             fluid
             selection
             options={cuisineOptions}
+            value={recipe.cuisine}
           />
           <Header>Cook Time</Header>
-          <Form.Input type="time" />
+          <Form.Input type="time" value={recipe.cooktime} />
 
           <Header>Description</Header>
-          <Form.TextArea placeholder="Tell us about your recipe" />
+          <Form.TextArea
+            placeholder="Tell us about your recipe"
+            value={recipe.description}
+          />
 
           <Header>List of Ingredients</Header>
           <Form.Group widths={2}>
@@ -92,6 +117,7 @@ const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
               style={{ paddingLeft: "5px" }}
               width={15}
               placeholder="e.g. Carrots"
+              value={recipe.ingredients}
             />
           </Form.Group>
 
@@ -107,6 +133,7 @@ const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
               style={{ paddingLeft: "5px" }}
               width={15}
               placeholder="e.g. Carrots"
+              value={recipe.ingredients}
             />
           </Form.Group>
           <Form.Group widths={2}>
@@ -121,6 +148,7 @@ const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
               style={{ paddingLeft: "5px" }}
               width={15}
               placeholder="e.g. Carrots"
+              value={recipe.ingredients}
             />
           </Form.Group>
           <Form.Group widths={2}>
@@ -135,14 +163,20 @@ const RecipeForm: React.FC<IProps> = ({recipe, setEditMode}) => {
               style={{ paddingLeft: "5px" }}
               width={15}
               placeholder="e.g. Carrots"
+              value={recipe.ingredients}
             />
           </Form.Group>
 
-          <Header>Instructions</Header>
-          <Form.TextArea placeholder="e.g. Place two eggs in the pan" />
+          <Header>Directions</Header>
+          <Form.TextArea placeholder="e.g. Place two eggs in the pan" value={recipe.directions} />
 
           <Button floated="right" positive type="submit" content="Create" />
-          <Button onClick={() => setEditMode(false)} floated="right" type="button" content="Cancel" />
+          <Button
+            onClick={() => setEditMode(false)}
+            floated="right"
+            type="button"
+            content="Cancel"
+          />
         </Form>
       </Segment>
     );
